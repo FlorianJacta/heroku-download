@@ -11,6 +11,10 @@ PATH_TO_TABLE = str(pathlib.Path(tempfile.gettempdir()) / "table.csv")
 data = pd.DataFrame({"x": [1, 2, 3, 4, 5], "y": [1, 2, 3, 4, 5]})
 data.to_csv(PATH_TO_TABLE,',', index=False)
 
+data['x'] = data['x'] + 1
+
+data.to_csv(PATH_TO_TABLE,',', index=False)
+
 gui = Gui('<|{data}|table|>\n<|{PATH_TO_TABLE}|file_download|name=table.csv|label=Download table|>')
 gui.run(
         title="Download dataframe",
